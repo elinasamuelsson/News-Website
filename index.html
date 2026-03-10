@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Generic News Site" />
+        <meta name="author" content="Elina Samuelsson" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Generic News Site</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="w-xl h-screen flex flex-col justify-center items-center">
+            <nav class="w-full h-1/6 flex flex-col border border-green-500">
+                <h1 class="self-center">Generic News Site</h1>
+                <p>navbar</p>
+            </nav>
+            <div class="w-full h-4/6 flex flex-col md:flex-row items-stretch">
+                <main
+                    class="basis-3/4 order-1 md:order-2 border border-red-500">
+                    <p>main</p>
+                </main>
+                <aside
+                    class="basis-1/4 order-2 md:order-1 border border-amber-500">
+                    <p>aside</p>
+                </aside>
+            </div>
+            <footer class="h-1/6 w-full border border-purple-500">
+                <p>footer</p>
+            </footer>
+        </div>
+    </body>
+</html>
