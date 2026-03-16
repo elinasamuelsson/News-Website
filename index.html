@@ -10,9 +10,12 @@
     </head>
     <body class="flex justify-center items-center">
         <div
-            class="w-xl min-h-screen md:max-w-[80%] flex flex-col justify-center items-center">
-            <header class="w-full h-1/6 flex flex-col bg-emerald-800 text-gray-50">
-                <h1 class="self-center p-2 text-5xl">Generic News Site</h1>
+            class="w-xl min-h-screen lg:max-w-[80%] flex flex-col justify-center items-center">
+            <header
+                class="w-full h-1/6 flex flex-col bg-emerald-800 text-gray-50">
+                <h1 class="self-center p-2 text-5xl font-serif">
+                    Generic News Site
+                </h1>
                 <nav class="flex flex-row flex-wrap justify-center p-2 text-l">
                     <a href="#" class="pr-4 hover:underline underline-offset-4"
                         >World news</a
@@ -34,12 +37,12 @@
                     >
                 </nav>
             </header>
-            <div class="w-full h-4/6 flex flex-col md:flex-row">
+            <div class="w-full h-4/6 flex flex-col lg:flex-row">
                 <main
-                    class="basis-3/4 flex flex-col items-center order-1 md:order-2">
+                    class="basis-3/4 flex flex-col items-center order-1 lg:order-2 border-b-2 border-emerald-800/30 lg:border-r-2 lg:border-b-0">
                     <h2 class="self-start pl-2 text-3xl">Featured news</h2>
                     <article class="p-2">
-                        <h3 class="text-xl">
+                        <h3 class="text-xl font-serif">
                             Scientists Shocked as “Floating Island” Appears
                             Overnight in the Atlantic
                         </h3>
@@ -52,7 +55,7 @@
                         </p>
                     </article>
                     <article class="p-2">
-                        <h3 class="text-xl">
+                        <h3 class="text-xl font-serif">
                             Scientists Shocked as “Floating Island” Appears
                             Overnight in the Atlantic
                         </h3>
@@ -65,7 +68,7 @@
                         </p>
                     </article>
                     <article class="p-2">
-                        <h3 class="text-xl">
+                        <h3 class="text-xl font-serif">
                             Scientists Shocked as “Floating Island” Appears
                             Overnight in the Atlantic
                         </h3>
@@ -78,16 +81,14 @@
                         </p>
                     </article>
                 </main>
-                <hr class="border-t-2 border-emerald-800"/> <!--FIXA STYLING-->
-                <aside
-                    class="basis-1/4 order-2 md:order-1">
+                <aside class="basis-1/4 order-2 lg:order-1 lg:border-r-2 lg:border-l-2 lg:border-emerald-800/30">
                     <article class="grid grid-cols-6 p-2">
-                        <p class="cols-span-1 row-span-2 text-sm">12:00</p>
+                        <p class="pt-1 col-span-1 row-span-2 text-sm lg:text-xs">12:00</p>
                         <h3 class="col-span-5 text-lg">
                             Scientists Shocked as “Floating Island” Appears
                             Overnight in the Atlantic
                         </h3>
-                        <p class="col-span-5 hidden md:block">
+                        <p class="col-span-5 hidden lg:block">
                             Residents of several coastal towns in western Europe
                             woke up Tuesday morning to a bizarre sight: a
                             massive landmass floating slowly across the Atlantic
@@ -95,12 +96,12 @@
                         </p>
                     </article>
                     <article class="grid grid-cols-6 p-2">
-                        <p class="cols-span-1 row-span-2 text-sm">12:00</p>
+                        <p class="pt-1 col-span-1 row-span-2 text-sm lg:text-xs">12:00</p>
                         <h3 class="col-span-5 text-lg">
                             Scientists Shocked as “Floating Island” Appears
                             Overnight in the Atlantic
                         </h3>
-                        <p class="col-span-5 hidden md:block">
+                        <p class="col-span-5 hidden lg:block">
                             Residents of several coastal towns in western Europe
                             woke up Tuesday morning to a bizarre sight: a
                             massive landmass floating slowly across the Atlantic
@@ -108,12 +109,12 @@
                         </p>
                     </article>
                     <article class="grid grid-cols-6 p-2">
-                        <p class="cols-span-1 row-span-2 text-sm">12:00</p>
+                        <p class="pt-1 col-span-1 row-span-2 text-sm lg:text-xs">12:00</p>
                         <h3 class="col-span-5 text-lg">
                             Scientists Shocked as “Floating Island” Appears
                             Overnight in the Atlantic
                         </h3>
-                        <p class="col-span-5 hidden md:block">
+                        <p class="col-span-5 hidden lg:block">
                             Residents of several coastal towns in western Europe
                             woke up Tuesday morning to a bizarre sight: a
                             massive landmass floating slowly across the Atlantic
@@ -122,26 +123,34 @@
                     </article>
                 </aside>
             </div>
-            <footer class="h-1/6 w-full bg-emerald-800 text-gray-50">
+            <footer class="h-1/6 w-full flex flex-col lg:flex-row justify-center bg-emerald-800 text-sm text-gray-50">
                 <section class="p-2">
-                    <h4>Lämna tips</h4>
-                    <p></p>
+                    <h4 class="text-base font-bold">Leave a tip</h4>
+                    <p><a href="tel:+4647084770">0470-84770</a></p>
+                    <p><a href="mailto:tips@gns.com">tip@gns.com</a></p>
                 </section>
                 <section class="p-2">
-                    <h4>Sociala medier</h4>
-                    <p></p>
+                    <h4 class="text-base font-bold">Socials</h4>
+                    <p>Facebook</p>
+                    <p>Instagram</p>
+                    <p>TikTok</p>
                 </section>
                 <section class="p-2">
-                    <h4>Kontakt</h4>
-                    <p></p>
+                    <h4 class="text-base font-bold">Contact</h4>
+                    <p><a href="tel:+4647042552">0470-42552</p>
+                    <p>info@gns.com</p>
                 </section>
                 <section class="p-2">
-                    <h4>Annonsering</h4>
-                    <p></p>
+                    <h4 class="text-base font-bold">Advertising</h4>
+                    <p>Order advertising <a href="#" class="underline underline-offset-2">here</a></p>
+                    <p><a href="#">Terms and conditions</a></p>
                 </section>
                 <section class="p-2">
-                    <h4>Information</h4>
-                    <p></p>
+                    <h4 class="text-base font-bold">Information</h4>
+                    <p>About us</p>
+                    <p>GDPR policy</p>
+                    <p>Cookie policy</p>
+                    <p>Copyright terms</p>
                 </section>
             </footer>
         </div>
