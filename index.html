@@ -6,6 +6,7 @@
         <meta name="author" content="Elina Samuelsson" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Generic News Site</title>
+        <script src="https://kit.fontawesome.com/687f46313d.js" crossorigin="anonymous"></script>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="flex justify-center items-center">
@@ -13,29 +14,34 @@
             class="w-xl min-h-screen lg:max-w-[80%] flex flex-col justify-center items-center">
             <header
                 class="w-full h-1/6 flex flex-col bg-emerald-800 text-gray-50">
-                <h1 class="self-center p-2 text-5xl font-serif">
+                <h1 class="self-center lg:self-start p-2 text-5xl text-center lg:text-left font-serif">
                     Generic News Site
                 </h1>
-                <nav class="flex flex-row flex-wrap justify-center p-2 text-l">
-                    <a href="#" class="pr-4 hover:underline underline-offset-4"
-                        >World news</a
-                    >
-                    <a href="#" class="pr-4 hover:underline underline-offset-4"
-                        >Politics</a
-                    >
-                    <a href="#" class="pr-4 hover:underline underline-offset-4"
-                        >Technology</a
-                    >
-                    <a href="#" class="pr-4 hover:underline underline-offset-4"
-                        >Economy</a
-                    >
-                    <a href="#" class="pr-4 hover:underline underline-offset-4"
-                        >Entertainment</a
-                    >
-                    <a href="#" class="pr-4 hover:underline underline-offset-4"
-                        >Sports</a
-                    >
-                </nav>
+                <div class="flex flex-row">
+                    <nav class="flex flex-row flex-wrap justify-center p-2 text-l">
+                        <a href="#" class="pr-4 hover:underline underline-offset-4"
+                            >World news</a
+                        >
+                        <a href="#" class="pr-4 hover:underline underline-offset-4"
+                            >Politics</a
+                        >
+                        <a href="#" class="pr-4 hover:underline underline-offset-4"
+                            >Technology</a
+                        >
+                        <a href="#" class="pr-4 hover:underline underline-offset-4"
+                            >Economy</a
+                        >
+                        <a href="#" class="pr-4 hover:underline underline-offset-4"
+                            >Entertainment</a
+                        >
+                        <a href="#" class="pr-4 hover:underline underline-offset-4"
+                            >Sports</a
+                        >
+                    </nav>
+                    <div class="">
+                        <input> <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
             </header>
             <div class="w-full h-4/6 flex flex-col lg:flex-row">
                 <main
@@ -123,34 +129,35 @@
                     </article>
                 </aside>
             </div>
-            <footer class="h-1/6 w-full flex flex-col lg:flex-row justify-center bg-emerald-800 text-sm text-gray-50">
+            <footer class="h-1/6 w-full flex flex-col lg:flex-row justify-evenly bg-emerald-800 text-sm text-gray-50">
                 <section class="p-2">
                     <h4 class="text-base font-bold">Leave a tip</h4>
-                    <p><a href="tel:+4647084770">0470-84770</a></p>
-                    <p><a href="mailto:tips@gns.com">tip@gns.com</a></p>
+                    <p><a href="tel:+4647084770" class="hover:underline underline-offset-2">0470-84770</a></p>
+                    <p><a href="mailto:tips@gns.com" class="hover:underline underline-offset-2">tip@gns.com</a></p>
                 </section>
                 <section class="p-2">
                     <h4 class="text-base font-bold">Socials</h4>
-                    <p>Facebook</p>
-                    <p>Instagram</p>
-                    <p>TikTok</p>
+                    <p><a href="#" class="group"><i class="fa-brands fa-linkedin"></i> <span class="group-hover:underline underline-offset-2">LinkedIn</span></a></p>
+                    <p><a href="#" class="group"><i class="fa-brands fa-square-facebook"></i> <span class="group-hover:underline underline-offset-2">Facebook</span></a></p>
+                    <p><a href="#" class="group"><i class="fa-brands fa-instagram"></i> <span class="group-hover:underline underline-offset-2">Instagram</span></a></p>
+                    <p><a href="#" class="group"><i class="fa-brands fa-tiktok"></i> <span class="group-hover:underline underline-offset-2">TikTok</span></a></p>
                 </section>
                 <section class="p-2">
                     <h4 class="text-base font-bold">Contact</h4>
-                    <p><a href="tel:+4647042552">0470-42552</p>
-                    <p>info@gns.com</p>
+                    <p><a href="tel:+4647042552" class="hover:underline underline-offset-2">0470-42552</p>
+                    <p><a href="mailto:info@gns.com" class="hover:underline underline-offset-2">info@gns.com</a></p>
                 </section>
                 <section class="p-2">
                     <h4 class="text-base font-bold">Advertising</h4>
-                    <p>Order advertising <a href="#" class="underline underline-offset-2">here</a></p>
-                    <p><a href="#">Terms and conditions</a></p>
+                    <p><a href="#" class="hover:underline underline-offset-2">Order advertising</a></p>
+                    <p><a href="#" class="hover:underline underline-offset-2">Terms and conditions</a></p>
                 </section>
                 <section class="p-2">
                     <h4 class="text-base font-bold">Information</h4>
-                    <p>About us</p>
-                    <p>GDPR policy</p>
-                    <p>Cookie policy</p>
-                    <p>Copyright terms</p>
+                    <p><a href="#" class="hover:underline underline-offset-2">About us</a></p>
+                    <p><a href="#" class="hover:underline underline-offset-2">GDPR policy</a></p>
+                    <p><a href="#" class="hover:underline underline-offset-2">Cookie policy</a></p>
+                    <p><a href="#" class="hover:underline underline-offset-2">Copyright terms</a></p>
                 </section>
             </footer>
         </div>
