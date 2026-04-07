@@ -8,6 +8,32 @@
         <title>Generic News Site</title>
         <script src="https://kit.fontawesome.com/687f46313d.js" crossorigin="anonymous"></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .article-image {
+                width: 100%;
+                padding-top: 70%;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .article-image::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: inherit;
+                background-size: cover;
+                background-position: center;
+                transition: transform 0.3s ease;
+            }
+
+            article:hover {
+                font-style: italic;
+            }
+
+            article:hover .article-image::after {
+                transform: scale(1.05);
+            }
+        </style>
     </head>
     <body class="flex justify-center items-center">
         <div
@@ -43,7 +69,8 @@
                             >
                         </nav>
                         <div class="p-2 hidden lg:inline lg:ml-auto">
-                            <input placeholder="Search for specific news.."> <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input placeholder="Search for specific news.."> 
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
                        </div>
                     </div>
                 </div>
@@ -58,7 +85,7 @@
                                 Scientists Shocked as "Floating Island" Appears
                                 Overnight in the Atlantic
                             </h3>
-                            <img src="ChatGPT_Image_1.png" />
+                            <div class="article-image" style="background-image: url('ChatGPT_Image_1.png');"></div>
                             <p>
                                 Residents of several coastal towns in western Europe
                                 woke up Tuesday morning to a bizarre sight: a
@@ -72,7 +99,7 @@
                                 Ancient Forest Discovered Beneath Sahara Desert
                                 After Record Rainfall
                             </h3>
-                            <img src="ChatGPT_Image_2.png" />
+                            <div class="article-image" style="background-image: url('ChatGPT_Image_2.png');"></div>
                             <p>
                                 A team of archaeologists stumbled upon a vast fossilised
                                 forest buried just metres below the Saharan sand, believed
@@ -97,7 +124,7 @@
                                 World's Largest Iceberg Breaks Free, Heads Toward
                                 Shipping Lanes
                             </h3>
-                            <img src="ChatGPT_Image_3.png" />
+                            <div class="article-image" style="background-image: url('ChatGPT_Image_3.png');"></div>
                             <p>
                                 An iceberg the size of Portugal has detached from
                                 Antarctica's western shelf, prompting urgent warnings
@@ -122,7 +149,7 @@
                                 Astronomers Detect Repeating Radio Signal From
                                 Nearby Star System
                             </h3>
-                            <img src="ChatGPT_Image_4.png" />
+                            <div class="article-image" style="background-image: url('ChatGPT_Image_4.png');"></div>
                             <p>
                                 For the third time in six months, radio telescopes in
                                 Chile have picked up a structured pulse emanating from
