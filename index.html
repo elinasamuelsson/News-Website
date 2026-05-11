@@ -8,6 +8,7 @@
         <title>Generic News Site</title>
         <script src="https://kit.fontawesome.com/687f46313d.js" crossorigin="anonymous"></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script  type="module" src="/script/app.js" defer></script>
         <style>
             .article-image {
                 width: 100%;
@@ -72,9 +73,32 @@
                             <input placeholder="Search for specific news.."> 
                             <button><i class="fa-solid fa-magnifying-glass"></i></button>
                        </div>
+                       <button id="adminButton"> Admin view </button>
                     </div>
                 </div>
             </header>
+            <div id="adminView" class="hidden w-full lg:max-w-[80%]">
+                <form id="articleForm">
+                    <input type="radio" id="featured" name="article" value="featured">
+                    <label for="featured">Featured article</label><br>
+                    <input type="radio" id="side" name="article" value="side">
+                    <label for="css">Side article</label><br>
+                    <br>
+                    <label for="articleTitle">Title:</label><br>
+                    <input id="articleTitle" name="articleTitle"><br>
+                    <br>
+                    <label for="imgLink">Image link:</label><br>
+                    <input id="imgLink" name="imgLink"><br>
+                    <br>
+                    <label for="articleTime">Article time:</label><br>
+                    <input id="articleTime" name="articleTime"><br>
+                    <br>
+                    <label for="articleContents">Contents:</label><br>
+                    <textarea id="articleContents" name="articleContents"> </textarea><br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
             <div class="w-full lg:max-w-[80%] h-4/6 flex flex-col lg:flex-row">
                 <main
                     class="basis-3/4 flex flex-col items-center order-1 lg:order-2 border-b-2 border-emerald-800/30 lg:border-r-2 lg:border-b-0">
@@ -85,7 +109,7 @@
                                 Scientists Shocked as "Floating Island" Appears
                                 Overnight in the Atlantic
                             </h3>
-                            <div class="article-image" style="background-image: url('ChatGPT_Image_1.png');"></div>
+                            <div class="article-image" style="background-image: url('images/ChatGPT_Image_1.png');"></div>
                             <p>
                                 Residents of several coastal towns in western Europe
                                 woke up Tuesday morning to a bizarre sight: a
@@ -99,7 +123,7 @@
                                 Ancient Forest Discovered Beneath Sahara Desert
                                 After Record Rainfall
                             </h3>
-                            <div class="article-image" style="background-image: url('ChatGPT_Image_2.png');"></div>
+                            <div class="article-image" style="background-image: url('images/ChatGPT_Image_2.png');"></div>
                             <p>
                                 A team of archaeologists stumbled upon a vast fossilised
                                 forest buried just metres below the Saharan sand, believed
@@ -109,51 +133,39 @@
                         <article class="p-2 mt-[20px] relative">
                             <a href="#" class="absolute inset-0"></a>
                             <h3 class="text-xl font-serif">
-                                Centuries-Old Shipwreck Found Intact Off the Coast
-                                of Portugal
+                                Centuries-Old Shipwreck Found Intact Off the Coast of Portugal
                             </h3>
                             <p>
-                                Deep-sea divers exploring a previously uncharted trench
-                                have uncovered a merchant vessel believed to date from
-                                the 15th century, with its cargo still sealed below deck...
+                                Deep-sea divers exploring a previously uncharted trench have uncovered a merchant vessel believed to date from the 15th century, with its cargo still sealed below deck...
                             </p>
                         </article>
                         <article class="p-2 mt-[20px] relative">
                             <a href="#" class="absolute inset-0"></a>
                             <h3 class="text-xl font-serif">
-                                World's Largest Iceberg Breaks Free, Heads Toward
-                                Shipping Lanes
+                                World's Largest Iceberg Breaks Free, Heads Toward Shipping Lanes
                             </h3>
-                            <div class="article-image" style="background-image: url('ChatGPT_Image_3.png');"></div>
+                            <div class="article-image" style="background-image: url('images/ChatGPT_Image_3.png');"></div>
                             <p>
-                                An iceberg the size of Portugal has detached from
-                                Antarctica's western shelf, prompting urgent warnings
-                                from maritime authorities across the southern hemisphere...
+                                An iceberg the size of Portugal has detached from Antarctica's western shelf, prompting urgent warnings from maritime authorities across the southern hemisphere...
                             </p>
                         </article>
                         <article class="p-2 mt-[20px] relative">
                             <a href="#" class="absolute inset-0"></a>
                             <h3 class="text-xl font-serif">
-                                Rare Atmospheric Phenomenon Turns Skies Green
-                                Across Scandinavia
+                                Rare Atmospheric Phenomenon Turns Skies Green Across Scandinavia
                             </h3>
                             <p>
-                                Millions across Norway, Sweden, and Finland looked up
-                                in astonishment on Friday evening as an unusual solar
-                                event painted the sky a vivid emerald green for nearly two hours...
+                                Millions across Norway, Sweden, and Finland looked up in astonishment on Friday evening as an unusual solar event painted the sky a vivid emerald green for nearly two hours...
                             </p>
                         </article>
                         <article class="p-2 mt-[20px] relative">
                             <a href="#" class="absolute inset-0"></a>
                             <h3 class="text-xl font-serif">
-                                Astronomers Detect Repeating Radio Signal From
-                                Nearby Star System
+                                Astronomers Detect Repeating Radio Signal From Nearby Star System
                             </h3>
-                            <div class="article-image" style="background-image: url('ChatGPT_Image_4.png');"></div>
+                            <div class="article-image" style="background-image: url('images/ChatGPT_Image_4.png');"></div>
                             <p>
-                                For the third time in six months, radio telescopes in
-                                Chile have picked up a structured pulse emanating from
-                                a star just 12 light-years from Earth, baffling researchers...
+                                For the third time in six months, radio telescopes in Chile have picked up a structured pulse emanating from a star just 12 light-years from Earth, baffling researchers...
                             </p>
                         </article>
                 </main>
@@ -162,13 +174,10 @@
                         <a href="#" class="absolute inset-0"></a>
                         <p class="pt-1 col-span-1 row-span-2 text-sm lg:text-xs">13:55</p>
                         <h3 class="col-span-5 text-lg">
-                            Man Emerges From Cave After 500 Days Alone,
-                            Thinks It Has Been Three Weeks
+                            Man Emerges From Cave After 500 Days Alone, Thinks It Has Been Three Weeks
                         </h3>
                         <p class="col-span-5 hidden lg:block">
-                            A French volunteer who agreed to live in isolation beneath
-                            the Pyrenees as part of a time-perception study has surfaced
-                            completely convinced that barely a month had passed...
+                            A French volunteer who agreed to live in i solation beneath the Pyrenees as part of a time-perception study has surfaced completely convinced that barely a month had passed...
                         </p>
                     </article>
                     <article class="grid grid-cols-6 p-2 mb-[10px] relative">
