@@ -1,6 +1,5 @@
 let articles = [
     {
-        id: 1,
         category: `featured`,
         title: `Scientists Shocked as "Floating Island" Appears Overnight in the Atlantic`,
         contents: `Residents of several coastal towns in western Europe woke up Tuesday morning to a bizarre sight: a massive landmass floating slowly across the Atlantic Ocean...`,
@@ -17,7 +16,6 @@ let articles = [
         dislikes: 0,
     },
     {
-        id: 2,
         category: `featured`,
         title: `Ancient Forest Discovered Beneath Sahara Desert After Record Rainfall`,
         contents: `A team of archaeologists stumbled upon a vast fossilised forest buried just metres below the Saharan sand, believed to date back over 50,000 years to a wetter, greener era...`,
@@ -34,7 +32,6 @@ let articles = [
         dislikes: 0,
     },
     {
-        id: 3,
         category: `featured`,
         title: `Centuries-Old Shipwreck Found Intact Off the Coast of Portugal`,
         contents: `Deep-sea divers exploring a previously uncharted trench have uncovered a merchant vessel believed to date from the 15th century, with its cargo still sealed below deck...`,
@@ -51,7 +48,6 @@ let articles = [
         dislikes: 0,
     },
     {
-        id: 4,
         category: `featured`,
         title: `World's Largest Iceberg Breaks Free, Heads Toward Shipping Lanes`,
         contents: `An iceberg the size of Portugal has detached from Antarctica's western shelf, prompting urgent warnings from maritime authorities across the southern hemisphere...`,
@@ -68,7 +64,6 @@ let articles = [
         dislikes: 0,
     },
     {
-        id: 5,
         category: `featured`,
         title: `Rare Atmospheric Phenomenon Turns Skies Green Across Scandinavia`,
         contents: `Millions across Norway, Sweden, and Finland looked up in astonishment on Friday evening as an unusual solar event painted the sky a vivid emerald green for nearly two hours...`,
@@ -85,7 +80,6 @@ let articles = [
         dislikes: 0,
     },
     {
-        id: 6,
         category: `featured`,
         title: `Astronomers Detect Repeating Radio Signal From Nearby Star System`,
         contents: `For the third time in six months, radio telescopes in Chile have picked up a structured pulse emanating from a star just 12 light-years from Earth, baffling researchers...`,
@@ -102,7 +96,6 @@ let articles = [
         dislikes: 0,
     },
     {
-        id: 7,
         category: `side`,
         title: `Man Emerges From Cave After 500 Days Alone, Thinks It Has Been Three Weeks`,
         contents: `A French volunteer who agreed to live in isolation beneath the Pyrenees as part of a time-perception study has surfaced completely convinced that barely a month had passed...`,
@@ -120,7 +113,21 @@ let articles = [
     },
 ];
 
-export function addArticleToList() {}
+export function addArticleToList(category, title, contents, time, date, imgLink) {
+    const article = {
+        category: category,
+        title: title,
+        contents: contents,
+        time: time,
+        date: date,
+        imgLink: imgLink,
+        comments: [],
+        likes: 0,
+        dislikes: 0
+    }
+    articles.push(article);
+    return article;
+}
 
 export function getAllArticlesCopy() {}
 
