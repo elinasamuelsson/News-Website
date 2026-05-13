@@ -2,7 +2,7 @@ import { addArticle } from "/script/addArticle.js";
 import { renderArticles } from "/script/renderArticles.js";
 
 // render articles to index on load
-// renderArticles();
+renderArticles();
 
 // display admin view
 const adminButton = document.getElementById("adminButton");

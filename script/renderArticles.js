@@ -1,13 +1,15 @@
 import { getAllArticlesCopy } from "/script/articles.js";
 
 export function renderArticles() {
-    // fetch all articles from articles array
+    const articlesCopy = getAllArticlesCopy();
 
-    //loop through array
-    //if category === featured
-    renderFeaturedArticle();
-    //if category === side
-    renderSideArticle();
+    articlesCopy.forEach(article => {
+        if (article.category === "featured") {
+            renderFeaturedArticle(article);
+        } else {
+            renderSideArticle(article);
+        }
+    });
 }
 
 export function renderFeaturedArticle(article) {
