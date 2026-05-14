@@ -19,14 +19,21 @@ export function renderArticles() {
 
         const articleTitle = params.get("title");
 
-        const mainArticle =
-            articlesCopy.find((article) => article.title === articleTitle);
+        const mainArticle = articlesCopy.find(
+            (article) => article.title === articleTitle,
+        );
         renderArticleToArticlePage(mainArticle);
     }
 }
 
 export function renderFeaturedArticleToIndex(article) {
     const articleElement = createMainArticle(article);
+
+    const articleLink = document.createElement("a");
+    articleLink.classList.add("absolute", "inset-0");
+    articleLink.href = `article.html?title=${encodeURIComponent(article.title)}`;
+
+    articleElement.prepend(articleLink);
 
     const mainWindow = document.querySelector("main");
     mainWindow.children[0].after(articleElement);
@@ -64,7 +71,7 @@ export function renderSideArticleToIndex(article) {
     articleContents.classList.add("col-span-5", "hidden", "lg:block");
     articleContents.textContent = `${article.contents}`;
 
-    articleElement.append(articleTime, articleTitle, articleContents);
+    articleElement.append(articleLink, articleTime, articleTitle, articleContents);
 
     const asideWindow = document.querySelector("aside");
     asideWindow.prepend(articleElement);
@@ -73,14 +80,35 @@ export function renderSideArticleToIndex(article) {
 function renderArticleToArticlePage(article) {
     const articleElement = createMainArticle(article);
 
-    const likesAndDislikes = document.createElement("div");
+    const timeAndDate = document.createElement("p");
+    timeAndDate.textContent = `${article.time}, ${article.date}`;
 
-    const likes = document.createElement("p");
+    articleElement.children[0].after(timeAndDate);
+
+    const likesAndDislikes = document.createElement("div");
+    likesAndDislikes.classList.add("flex");
+
     const likeButton = document.createElement("button");
     likeButton.id = "likeButton";
+    likeButton.classList.add("p-2");
     likeButton.textContent = "LIKE";
 
-    likesAndDislikes.append(likeButton, likes);
+    const likes = document.createElement("p");
+    likes.classList.add("p-2");
+    likes.id = "likesParagraph";
+    likes.textContent = `${article.likes} likesqqqqqaw2`;
+
+    const dislikeButton = document.createElement("button");
+    dislikeButton.id = "dislikeButton";
+    dislikeButton.classList.add("p-2");
+    dislikeButton.textContent = "DISLIKE";
+
+    const dislikes = document.createElement("p");
+    dislikes.classList.add("p-2");
+    dislikes.id = "dislikesParagraph";
+    dislikes.textContent = `${article.dislikes} dislikes`;
+
+    likesAndDislikes.append(likeButton, likes, dislikeButton, dislikes);
 
     articleElement.append(likesAndDislikes);
 
@@ -92,17 +120,11 @@ function createMainArticle(article) {
     const articleElement = document.createElement("article");
     articleElement.classList.add("p-2", "mt-[20px]", "relative");
 
-    articleElement.innerHTML = `<a href="/article.html" class="absolute inset-0"></a>`;
-
-    const articleLink = document.createElement("a");
-    articleLink.classList.add("absolute", "inset-0");
-    articleLink.href = `article.html?title=${encodeURIComponent(article.title)}`;
-
     const articleTitle = document.createElement("h3");
     articleTitle.classList.add("text-xl", "font-serif");
     articleTitle.textContent = `${article.title}`;
 
-    articleElement.append(articleLink, articleTitle);
+    articleElement.append(articleTitle);
 
     if (article.imgLink) {
         const articleImg = document.createElement("div");

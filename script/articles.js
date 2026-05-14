@@ -209,4 +209,9 @@ export function getAllArticlesCopy() {
     return articles.map((article) => ({ ...article }));
 }
 
-export function removeArticleFromList() {}
+
+export function updateArticle(article) {
+    let changedArticle = articles.find((a) => a.title === article.title);
+    
+    changedArticle = article;
+}
