@@ -1,4 +1,5 @@
 import { updateArticle } from "/script/articles.js";
+import { createComment } from "/script/renderArticles.js";
 import { getAllArticlesCopy } from "/script/articles.js";
 
 const articlesCopy = getAllArticlesCopy();
@@ -29,4 +30,35 @@ export function addDislike() {
     updateArticle(article);
 }
 
-export function addComment() {}
+export function addComment(e) {
+    e.preventDefault();
+
+    const commenter = document.getElementById("commenter").value;
+    const contents = document.getElementById("contents").value;
+
+    if (!commenter || !contents) {
+        alert("Must enter name and comment.");
+        return;
+    }
+
+    const comment = {
+        commenter: commenter,
+        comment: contents,
+    };
+
+    const articleTitle = document.querySelector("main article h3").textContent;
+
+    let article = articlesCopy.find((a) => a.title === articleTitle);
+
+    if (!article) return;
+    article.comments.push(comment);
+
+    const commentBoard = document.getElementById("commentBoard");
+
+    const commentItem = createComment(comment);
+    console.log(commentItem);
+
+    commentBoard.append(commentItem);
+
+    updateArticle(article);
+}

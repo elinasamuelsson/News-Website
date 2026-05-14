@@ -1,11 +1,12 @@
 import { renderArticles } from "/script/renderArticles.js";
 import { addArticle } from "/script/addArticle.js";
-import { addLike, addDislike } from "/script/reactions.js";
+import { removeArticle } from "/script/removeArticle.js";
+import { addLike, addDislike, addComment } from "/script/reactions.js";
 
 // render articles on load
 renderArticles();
 
-//INDEX.HTML 
+//INDEX.HTML
 if (window.location.pathname.includes("index.html")) {
     // display admin view
     const adminButton = document.getElementById("adminButton");
@@ -29,4 +30,12 @@ if (window.location.pathname.includes("article.html")) {
     // add dislike to article
     const dislikeButton = document.getElementById("dislikeButton");
     dislikeButton.addEventListener("click", addDislike);
+
+    // add comment to article
+    const commentForm = document.getElementById("commentForm");
+    commentForm.addEventListener("submit", addComment);
+
+    // remove article
+    const removeButton = document.getElementById("removeButton");
+    removeButton.addEventListener("click", removeArticle);
 }

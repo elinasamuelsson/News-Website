@@ -3,17 +3,25 @@ let articles = [
         category: `featured`,
         title: `Scientists Shocked as "Floating Island" Appears Overnight in the Atlantic`,
         contents: `Residents of several coastal towns in western Europe woke up Tuesday morning to a bizarre sight: a massive landmass floating slowly across the Atlantic Ocean...`,
-        time: ``,
-        date: ``,
+        time: `13:00`,
+        date: `2026-05-13`,
         imgLink: `images/ChatGPT_Image_1.png`,
         comments: [
             {
-                commenter: `anon`,
+                commenter: `Tobey`,
                 comment: `This is absurd`,
             },
+            {
+                commenter: `Milo`,
+                comment: `fake news.`,
+            },
+            {
+                commenter: `Pelle`,
+                comment: `The news says it's true so it must be true.`,
+            },
         ],
-        likes: 2,
-        dislikes: 1,
+        likes: 3,
+        dislikes: 20,
     },
     {
         category: `featured`,
@@ -209,9 +217,13 @@ export function getAllArticlesCopy() {
     return articles.map((article) => ({ ...article }));
 }
 
+export function removeArticleFromList(title) {
+    const newArticles = articles.filter((article) => article.title !== title);
+    return (articles = newArticles);
+}
 
 export function updateArticle(article) {
     let changedArticle = articles.find((a) => a.title === article.title);
-    
+
     changedArticle = article;
 }
