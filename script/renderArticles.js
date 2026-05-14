@@ -96,7 +96,7 @@ function renderArticleToArticlePage(article) {
     const likes = document.createElement("p");
     likes.classList.add("p-2");
     likes.id = "likesParagraph";
-    likes.textContent = `${article.likes} likesqqqqqaw2`;
+    likes.textContent = `${article.likes} likes`;
 
     const dislikeButton = document.createElement("button");
     dislikeButton.id = "dislikeButton";
