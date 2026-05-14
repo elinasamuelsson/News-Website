@@ -96,9 +96,9 @@ function renderArticleToArticlePage(article) {
 
     const removeButton = document.createElement("button");
     removeButton.id = "removeButton";
-    removeButton.textContent("Remove this article");
+    removeButton.textContent = "Remove this article";
 
-    articleElement.append(likesAndDislikesContainer, commentsContainer);
+    articleElement.append(removeButton, likesAndDislikesContainer, commentsContainer);
 
     const mainWindow = document.querySelector("main");
     mainWindow.append(articleElement);
@@ -132,7 +132,7 @@ function createMainArticle(article) {
 
 function createLikesAndDislikesContainer(article) {
     const likesAndDislikes = document.createElement("div");
-    likesAndDislikes.classList.add("flex");
+    likesAndDislikes.classList.add("flex", "mt-4");
 
     const likeButton = document.createElement("button");
     likeButton.id = "likeButton";

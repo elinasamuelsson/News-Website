@@ -218,8 +218,8 @@ export function getAllArticlesCopy() {
 }
 
 export function removeArticleFromList(title) {
-    const newArticles = articles.filter((article) => article.title !== title);
-    return (articles = newArticles);
+    articles = articles.filter((article) => article.title !== title);
+    console.log(articles);
 }
 
 export function updateArticle(article) {
