@@ -3,84 +3,119 @@ import { getAllArticlesCopy } from "/script/articles.js";
 export function renderArticles() {
     const articlesCopy = getAllArticlesCopy();
 
-    articlesCopy.forEach(article => {
-        if (article.category === "featured") {
-            renderFeaturedArticle(article);
+    articlesCopy.forEach((article) => {
+        if (
+            article.category === "featured" &&
+            window.location.pathname.includes("index.html")
+        ) {
+            renderFeaturedArticleToIndex(article);
         } else {
-            renderSideArticle(article);
+            renderSideArticleToIndex(article);
         }
     });
+
+    if (window.location.pathname.includes("article.html")) {
+        const params = new URLSearchParams(window.location.search);
+
+        const articleTitle = params.get("title");
+
+        const mainArticle =
+            articlesCopy.find((article) => article.title === articleTitle);
+        renderArticleToArticlePage(mainArticle);
+    }
 }
 
-export function renderFeaturedArticle(article) {
-    const articleElement = document.createElement("article");
-    articleElement.classList.add("p-2");
-    articleElement.classList.add("mt-[20px]");
-    articleElement.classList.add("relative");
+export function renderFeaturedArticleToIndex(article) {
+    const articleElement = createMainArticle(article);
 
-    articleElement.innerHTML = `
-                            <a href="#" class="absolute inset-0"></a>`;
+    const mainWindow = document.querySelector("main");
+    mainWindow.children[0].after(articleElement);
+}
+
+export function renderSideArticleToIndex(article) {
+    const articleElement = document.createElement("article");
+    articleElement.classList.add(
+        "grid",
+        "grid-cols-6",
+        "p-2",
+        "mb-[10px]",
+        "relative",
+    );
+
+    const articleLink = document.createElement("a");
+    articleLink.classList.add("absolute", "inset-0");
+    articleLink.href = `article.html?title=${encodeURIComponent(article.title)}`;
+
+    const articleTime = document.createElement("p");
+    articleTime.classList.add(
+        "pt-1",
+        "col-span-1",
+        "row-span-2",
+        "text-sm",
+        "lg:text-xs",
+    );
+    articleTime.textContent = `${article.time}`;
 
     const articleTitle = document.createElement("h3");
-    articleTitle.classList.add("text-xl");
-    articleTitle.classList.add("font-serif");
+    articleTitle.classList.add("col-span-5", "text-lg");
     articleTitle.textContent = `${article.title}`;
 
-    articleElement.appendChild(articleTitle);
+    const articleContents = document.createElement("p");
+    articleContents.classList.add("col-span-5", "hidden", "lg:block");
+    articleContents.textContent = `${article.contents}`;
+
+    articleElement.append(articleTime, articleTitle, articleContents);
+
+    const asideWindow = document.querySelector("aside");
+    asideWindow.prepend(articleElement);
+}
+
+function renderArticleToArticlePage(article) {
+    const articleElement = createMainArticle(article);
+
+    const likesAndDislikes = document.createElement("div");
+
+    const likes = document.createElement("p");
+    const likeButton = document.createElement("button");
+    likeButton.id = "likeButton";
+    likeButton.textContent = "LIKE";
+
+    likesAndDislikes.append(likeButton, likes);
+
+    articleElement.append(likesAndDislikes);
+
+    const mainWindow = document.querySelector("main");
+    mainWindow.append(articleElement);
+}
+
+function createMainArticle(article) {
+    const articleElement = document.createElement("article");
+    articleElement.classList.add("p-2", "mt-[20px]", "relative");
+
+    articleElement.innerHTML = `<a href="/article.html" class="absolute inset-0"></a>`;
+
+    const articleLink = document.createElement("a");
+    articleLink.classList.add("absolute", "inset-0");
+    articleLink.href = `article.html?title=${encodeURIComponent(article.title)}`;
+
+    const articleTitle = document.createElement("h3");
+    articleTitle.classList.add("text-xl", "font-serif");
+    articleTitle.textContent = `${article.title}`;
+
+    articleElement.append(articleLink, articleTitle);
 
     if (article.imgLink) {
         const articleImg = document.createElement("div");
         articleImg.classList.add("article-image");
         articleImg.style.backgroundImage = `url(${article.imgLink})`;
 
-        articleElement.appendChild(articleImg);
+        articleElement.append(articleImg);
     }
 
     const articleContents = document.createElement("p");
     articleContents.textContent = `${article.contents}`;
 
-    articleElement.appendChild(articleContents);
+    articleElement.append(articleContents);
 
-    const mainWindow = document.querySelector("main");
-    mainWindow.children[0].after(articleElement);
-}
-
-export function renderSideArticle(article) {
-    const articleElement = document.createElement("article");
-    articleElement.classList.add("grid");
-    articleElement.classList.add("grid-cols-6");
-    articleElement.classList.add("p-2");
-    articleElement.classList.add("mb-[10px]");
-    articleElement.classList.add("relative");
-
-    articleElement.innerHTML = `
-                            <a href="#" class="absolute inset-0"></a>`;
-
-    const articleTime = document.createElement("p");
-    articleTime.classList.add("pt-1");
-    articleTime.classList.add("col-span-1");
-    articleTime.classList.add("row-span-2");
-    articleTime.classList.add("text-sm");
-    articleTime.classList.add("lg:text-xs");
-    articleTime.textContent = `${article.time}`;
-
-    articleElement.appendChild(articleTime);
-
-    const articleTitle = document.createElement("h3");
-    articleTitle.classList.add("col-span-5");
-    articleTitle.classList.add("text-lg");
-    articleTitle.textContent = `${article.title}`;
-
-    articleElement.appendChild(articleTitle);
-
-    const articleContents = document.createElement("p");
-    articleContents.classList.add("col-span-5");
-    articleContents.classList.add("hidden");
-    articleContents.classList.add("lg:block");
-    articleContents.textContent = `${article.contents}`;
-
-    articleElement.appendChild(articleContents);
-
-    const asideWindow = document.querySelector("aside");
-    asideWindow.prepend(articleElement);
+    return articleElement;
 }

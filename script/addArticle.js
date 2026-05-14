@@ -1,7 +1,7 @@
 import { addArticleToList, getAllArticlesCopy } from "/script/articles.js";
 import {
-    renderFeaturedArticle,
-    renderSideArticle,
+    renderFeaturedArticleToIndex,
+    renderSideArticleToIndex,
 } from "/script/renderArticles.js";
 
 export function addArticle(e) {
@@ -36,8 +36,8 @@ export function addArticle(e) {
     );
 
     if (articleType.value === "featured") {
-        renderFeaturedArticle(article);
+        renderFeaturedArticleToIndex(article);
     } else if (articleType.value === "side") {
-        renderSideArticle(article);
+        renderSideArticleToIndex(article);
     }
 }
