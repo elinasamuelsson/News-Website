@@ -19,14 +19,17 @@ export function toastMessage(message) {
         "opacity-0",
         "min-h-8",
         "-mt-10",
-        "rounded-md",
         "py-3",
         "px-4",
-        "bg-white",
+        "bg-emerald-800",
         "border",
-        "border-stone-200",
+        "border-emerald-900",
+        "text-gray-50",
+        "text-sm",
+        "font-semibold",
+        "tracking-wide",
         "text-center",
-        "shadow-xs",
+        "shadow-md",
     );
     toast.textContent = message;
     toastContainer.prepend(toast);

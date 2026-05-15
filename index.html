@@ -82,30 +82,52 @@
                     </div>
                 </div>
             </header>
-            <div id="adminView" class="hidden w-full lg:max-w-[80%]">
-                <form id="articleForm">
-                    <input type="radio" id="featured" name="article" value="featured">
-                    <label for="featured">Featured article</label><br>
-                    <input type="radio" id="side" name="article" value="side">
-                    <label for="css">Side article</label><br>
-                    <br>
-                    <label for="articleTitle">Title:</label><br>
-                    <input id="articleTitle" name="articleTitle"><br>
-                    <br>
-                    <label for="imgLink">Image link:</label><br>
-                    <input id="imgLink" name="imgLink"><br>
-                    <br>
-                    <label for="articleTime">Article time:</label><br>
-                    <input id="articleTime" name="articleTime"><br>
-                    <br>
-                    <label for="articleDate">Article date:</label><br>
-                    <input id="articleDate" name="articleDate"><br>
-                    <br>
-                    <label for="articleContents">Contents:</label><br>
-                    <textarea id="articleContents" name="articleContents"> </textarea><br>
-                    <br>
-                    <input type="submit" value="Submit">
-                </form>
+            <div id="adminView" class="hidden w-full lg:max-w-[80%] border-b border-emerald-800/30 py-6">
+                <form id="articleForm" class="flex flex-col gap-3">
+                    <h3 class="text-lg font-serif text-gray-900 mb-1">Add article</h3>
+                    <div class="flex gap-6">
+                        <label class="flex items-center gap-2 text-sm font-semibold text-gray-700 uppercase tracking-wide cursor-pointer">
+                        <input type="radio" id="featured" name="article" value="featured"
+                            class="accent-emerald-800">
+                        Featured article
+                        </label>
+                        <label class="flex items-center gap-2 text-sm font-semibold text-gray-700 uppercase tracking-wide cursor-pointer">
+                        <input type="radio" id="side" name="article" value="side"
+                            class="accent-emerald-800">
+                        Side article
+                        </label>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label for="articleTitle" class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Title:</label>
+                        <input id="articleTitle" name="articleTitle"
+                        class="w-full border border-emerald-800/30 px-3 py-2 text-sm text-gray-900 focus:outline-none focus:border-emerald-800 transition-colors">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label for="imgLink" class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Image link:</label>
+                        <input id="imgLink" name="imgLink"
+                        class="w-full border border-emerald-800/30 px-3 py-2 text-sm text-gray-900 focus:outline-none focus:border-emerald-800 transition-colors">
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col gap-1 flex-1">
+                            <label for="articleTime" class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Time:</label>
+                            <input id="articleTime" name="articleTime"
+                            class="w-full border border-emerald-800/30 px-3 py-2 text-sm text-gray-900 focus:outline-none focus:border-emerald-800 transition-colors">
+                        </div>
+                        <div class="flex flex-col gap-1 flex-1">
+                        <label for="articleDate" class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Date:</label>
+                        <input id="articleDate" name="articleDate"
+                            class="w-full border border-emerald-800/30 px-3 py-2 text-sm text-gray-900 focus:outline-none focus:border-emerald-800 transition-colors">
+                    </div>
+                </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="articleContents" class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Contents:</label>
+                        <textarea id="articleContents" name="articleContents" class="w-full border border-emerald-800/30 px-3 py-2 text-sm text-gray-900 focus:outline-none focus:border-emerald-800 transition-colors resize-none h-32"> </textarea>
+                    </div>
+
+                    <input type="submit" value="Submit" class="self-start px-5 py-2 text-sm font-semibold tracking-wide text-gray-50 bg-emerald-800 hover:bg-emerald-900 transition-colors duration-200 cursor-pointer">
+
+                    </form>
             </div>
             <div class="w-full lg:max-w-[80%] h-4/6 flex flex-col lg:flex-row">
                 <main
