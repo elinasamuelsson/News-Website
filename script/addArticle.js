@@ -1,3 +1,4 @@
+import { toastMessage } from "/script/toastMessages.js";
 import { addArticleToList, getAllArticlesCopy } from "/script/articles.js";
 import {
     renderFeaturedArticleToIndex,
@@ -7,7 +8,7 @@ import {
 export function addArticle(e) {
     e.preventDefault();
 
-    const articleType = document.querySelector('input[name="article"]:checked');
+    const articleType = document.querySelector('input[name="article"]:checked').value;
 
     if (!articleType) {
         alert("Must select article type to create a new article.");
@@ -35,9 +36,13 @@ export function addArticle(e) {
         articleImgLink,
     );
 
-    if (articleType.value === "featured") {
+    if (article) {
+        toastMessage("Article successfully created.");
+    }
+
+    if (articleType === "featured") {
         renderFeaturedArticleToIndex(article);
-    } else if (articleType.value === "side") {
+    } else if (articleType === "side") {
         renderSideArticleToIndex(article);
     }
 }

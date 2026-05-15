@@ -7,7 +7,11 @@ import { addLike, addDislike, addComment } from "/script/reactions.js";
 renderArticles();
 
 //INDEX.HTML
-if (window.location.pathname.includes("index.html")) {
+const isIndex =
+    window.location.pathname === "/" ||
+    window.location.pathname.includes("index.html");
+
+if (isIndex) {
     // display admin view
     const adminButton = document.getElementById("adminButton");
     const adminView = document.getElementById("adminView");

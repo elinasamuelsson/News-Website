@@ -230,7 +230,6 @@ export function updateArticle(article) {
     const index = articles.findIndex((a) => a.title === article.title);
     articles[index] = article;
     saveToLocalStorage();
-    console.log(article);
 }
 
 export function setArticles(a) {

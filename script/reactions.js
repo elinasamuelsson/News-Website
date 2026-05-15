@@ -1,6 +1,7 @@
 import { updateArticle } from "/script/articles.js";
 import { createComment } from "/script/renderArticles.js";
 import { getAllArticlesCopy } from "/script/articles.js";
+import { toastMessage } from "/script/toastMessages.js";
 
 export function addLike() {
     const articlesCopy = getAllArticlesCopy();
@@ -14,7 +15,6 @@ export function addLike() {
     likesParagraph.textContent = `${article.likes} likes`;
 
     updateArticle(article);
-    console.log(article);
 }
 
 export function addDislike() {
@@ -29,11 +29,12 @@ export function addDislike() {
     dislikesParagraph.textContent = `${article.dislikes} dislikes`;
 
     updateArticle(article);
-    console.log(article);
 }
 
 export function addComment(e) {
     e.preventDefault();
+
+    const articlesCopy = getAllArticlesCopy();
 
     const commenter = document.getElementById("commenter").value;
     const contents = document.getElementById("contents").value;
@@ -60,6 +61,7 @@ export function addComment(e) {
     const commentItem = createComment(comment);
 
     commentBoard.append(commentItem);
-
+    
+    toastMessage("Comment successfully posted.")
     updateArticle(article);
 }

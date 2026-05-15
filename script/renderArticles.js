@@ -10,7 +10,7 @@ export function renderArticles() {
         window.location.pathname.includes("index.html");
 
     articlesCopy.forEach((article) => {
-        if (article.category === "featured" && isIndex) {
+        if (isIndex && article.category === "featured") {
             renderFeaturedArticleToIndex(article);
         } else {
             renderSideArticleToIndex(article);
