@@ -2,10 +2,9 @@ import { updateArticle } from "/script/articles.js";
 import { createComment } from "/script/renderArticles.js";
 import { getAllArticlesCopy } from "/script/articles.js";
 
-const articlesCopy = getAllArticlesCopy();
-
 export function addLike() {
-    const articleTitle = document.querySelector("h3").textContent;
+    const articlesCopy = getAllArticlesCopy();
+    const articleTitle = document.querySelector("article h3").textContent;
 
     let article = articlesCopy.find((a) => a.title === articleTitle);
 
@@ -15,10 +14,12 @@ export function addLike() {
     likesParagraph.textContent = `${article.likes} likes`;
 
     updateArticle(article);
+    console.log(article);
 }
 
 export function addDislike() {
-    const articleTitle = document.querySelector("h3").textContent;
+    const articlesCopy = getAllArticlesCopy();
+    const articleTitle = document.querySelector("article h3").textContent;
 
     let article = articlesCopy.find((a) => a.title === articleTitle);
 
@@ -28,6 +29,7 @@ export function addDislike() {
     dislikesParagraph.textContent = `${article.dislikes} dislikes`;
 
     updateArticle(article);
+    console.log(article);
 }
 
 export function addComment(e) {
@@ -56,7 +58,6 @@ export function addComment(e) {
     const commentBoard = document.getElementById("commentBoard");
 
     const commentItem = createComment(comment);
-    console.log(commentItem);
 
     commentBoard.append(commentItem);
 

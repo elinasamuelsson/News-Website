@@ -1,13 +1,16 @@
+import { fetchFromLocalStorage } from "/script/localStorage.js";
 import { getAllArticlesCopy } from "/script/articles.js";
 
 export function renderArticles() {
+    fetchFromLocalStorage();
     const articlesCopy = getAllArticlesCopy();
 
+    const isIndex =
+        window.location.pathname === "/" ||
+        window.location.pathname.includes("index.html");
+        
     articlesCopy.forEach((article) => {
-        if (
-            article.category === "featured" &&
-            window.location.pathname.includes("index.html")
-        ) {
+        if (article.category === "featured" && isIndex) {
             renderFeaturedArticleToIndex(article);
         } else {
             renderSideArticleToIndex(article);
@@ -98,7 +101,11 @@ function renderArticleToArticlePage(article) {
     removeButton.id = "removeButton";
     removeButton.textContent = "Remove this article";
 
-    articleElement.append(removeButton, likesAndDislikesContainer, commentsContainer);
+    articleElement.append(
+        removeButton,
+        likesAndDislikesContainer,
+        commentsContainer,
+    );
 
     const mainWindow = document.querySelector("main");
     mainWindow.append(articleElement);

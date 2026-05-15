@@ -1,3 +1,5 @@
+import { saveToLocalStorage } from "/script/localStorage.js";
+
 let articles = [
     {
         category: `featured`,
@@ -210,6 +212,7 @@ export function addArticleToList(
         dislikes: 0,
     };
     articles.push(article);
+    saveToLocalStorage();
     return article;
 }
 
@@ -218,12 +221,18 @@ export function getAllArticlesCopy() {
 }
 
 export function removeArticleFromList(title) {
-    articles = articles.filter((article) => article.title !== title);
-    console.log(articles);
+    const index = articles.findIndex((a) => a.title === title);
+    articles.splice(index, 1);
+    saveToLocalStorage();
 }
 
 export function updateArticle(article) {
-    let changedArticle = articles.find((a) => a.title === article.title);
+    const index = articles.findIndex((a) => a.title === article.title);
+    articles[index] = article;
+    saveToLocalStorage();
+    console.log(article);
+}
 
-    changedArticle = article;
+export function setArticles(a) {
+    articles = a;
 }
