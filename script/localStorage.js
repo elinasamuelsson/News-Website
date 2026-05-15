@@ -1,18 +1,17 @@
-import { getAllArticlesCopy, setArticles } from "/script/articles.js";
+import {getAllArticlesCopy, setArticles} from "/script/articles.js";
 
 export function saveToLocalStorage() {
-    localStorage.setItem("articles", JSON.stringify(getAllArticlesCopy()));
+	localStorage.setItem("articles", JSON.stringify(getAllArticlesCopy()));
 }
 
 export function fetchFromLocalStorage() {
+	const localStorageGet = localStorage.getItem("articles");
 
-    const localStorageGet = localStorage.getItem("articles");
+	if (!localStorageGet) {
+		return;
+	}
 
-    if (!localStorageGet) {
-        return;
-    }
+	const articles = JSON.parse(localStorageGet);
 
-    const articles = JSON.parse(localStorageGet);
-
-    setArticles(articles);
+	setArticles(articles);
 }

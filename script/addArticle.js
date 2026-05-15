@@ -1,48 +1,50 @@
-import { toastMessage } from "/script/toastMessages.js";
-import { addArticleToList, getAllArticlesCopy } from "/script/articles.js";
+import {toastMessage} from "/script/toastMessages.js";
+import {addArticleToList, getAllArticlesCopy} from "/script/articles.js";
 import {
-    renderFeaturedArticleToIndex,
-    renderSideArticleToIndex,
+	renderFeaturedArticleToIndex,
+	renderSideArticleToIndex,
 } from "/script/renderArticles.js";
 
 export function addArticle(e) {
-    e.preventDefault();
+	e.preventDefault();
 
-    const articleType = document.querySelector('input[name="article"]:checked').value;
+	const articleType = document.querySelector(
+		'input[name="article"]:checked',
+	).value;
 
-    if (!articleType) {
-        alert("Must select article type to create a new article.");
-        return;
-    }
+	if (!articleType) {
+		alert("Must select article type to create a new article.");
+		return;
+	}
 
-    const articleTitle = document.getElementById("articleTitle").value;
-    const articleImgLink = document.getElementById("imgLink").value;
-    const articleTime = document.getElementById("articleTime").value;
-    const articleDate = document.getElementById("articleDate").value;
-    const articleContents = document.getElementById("articleContents").value;
+	const articleTitle = document.getElementById("articleTitle").value;
+	const articleImgLink = document.getElementById("imgLink").value;
+	const articleTime = document.getElementById("articleTime").value;
+	const articleDate = document.getElementById("articleDate").value;
+	const articleContents = document.getElementById("articleContents").value;
 
-    //no required fields empty validation
-    if (!articleTitle || !articleContents || !articleTime || !articleDate) {
-        alert("Must enter title, contents, time and date to add new article.");
-        return;
-    }
+	//no required fields empty validation
+	if (!articleTitle || !articleContents || !articleTime || !articleDate) {
+		alert("Must enter title, contents, time and date to add new article.");
+		return;
+	}
 
-    const article = addArticleToList(
-        articleType,
-        articleTitle,
-        articleContents,
-        articleTime,
-        articleDate,
-        articleImgLink,
-    );
+	const article = addArticleToList(
+		articleType,
+		articleTitle,
+		articleContents,
+		articleTime,
+		articleDate,
+		articleImgLink,
+	);
 
-    if (article) {
-        toastMessage("Article successfully created.");
-    }
+	if (article) {
+		toastMessage("Article successfully created.");
+	}
 
-    if (articleType === "featured") {
-        renderFeaturedArticleToIndex(article);
-    } else if (articleType === "side") {
-        renderSideArticleToIndex(article);
-    }
+	if (articleType === "featured") {
+		renderFeaturedArticleToIndex(article);
+	} else if (articleType === "side") {
+		renderSideArticleToIndex(article);
+	}
 }

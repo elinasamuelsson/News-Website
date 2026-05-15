@@ -1,4 +1,4 @@
-import { saveToLocalStorage } from "/script/localStorage.js";
+import {saveToLocalStorage} from "/script/localStorage.js";
 
 let articles = [
 	{
@@ -328,45 +328,45 @@ let articles = [
 ];
 
 export function addArticleToList(
-    category,
-    title,
-    contents,
-    time,
-    date,
-    imgLink,
+	category,
+	title,
+	contents,
+	time,
+	date,
+	imgLink,
 ) {
-    const article = {
-        category: category,
-        title: title,
-        contents: contents,
-        time: time,
-        date: date,
-        imgLink: imgLink,
-        comments: [],
-        likes: 0,
-        dislikes: 0,
-    };
-    articles.push(article);
-    saveToLocalStorage();
-    return article;
+	const article = {
+		category: category,
+		title: title,
+		contents: contents,
+		time: time,
+		date: date,
+		imgLink: imgLink,
+		comments: [],
+		likes: 0,
+		dislikes: 0,
+	};
+	articles.push(article);
+	saveToLocalStorage();
+	return article;
 }
 
 export function getAllArticlesCopy() {
-    return articles.map((article) => ({ ...article }));
+	return articles.map((article) => ({...article}));
 }
 
 export function removeArticleFromList(title) {
-    const index = articles.findIndex((a) => a.title === title);
-    articles.splice(index, 1);
-    saveToLocalStorage();
+	const index = articles.findIndex((a) => a.title === title);
+	articles.splice(index, 1);
+	saveToLocalStorage();
 }
 
 export function updateArticle(article) {
-    const index = articles.findIndex((a) => a.title === article.title);
-    articles[index] = article;
-    saveToLocalStorage();
+	const index = articles.findIndex((a) => a.title === article.title);
+	articles[index] = article;
+	saveToLocalStorage();
 }
 
 export function setArticles(a) {
-    articles = a;
+	articles = a;
 }
