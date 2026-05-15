@@ -107,20 +107,6 @@ export function renderSideArticleToIndex(article) {
 function renderArticleToArticlePage(article) {
     const articleElement = createMainArticle(article);
 
-    const timeAndDate = document.createElement("p");
-    timeAndDate.classList.add(
-        "text-sm",
-        "text-emerald-800",
-        "font-semibold",
-        "uppercase",
-        "tracking-wide",
-        "mt-1",
-        "mb-2",
-    );
-    timeAndDate.textContent = `${article.time}, ${article.date}`;
-
-    articleElement.children[0].after(timeAndDate);
-
     const likesAndDislikesContainer = createLikesAndDislikesContainer(article);
 
     const commentsContainer = createCommentsSection(article);
@@ -203,6 +189,20 @@ function createMainArticle(article) {
     articleElement.append(articleContents);
 
     return articleElement;
+
+	const timeAndDate = document.createElement("p");
+	timeAndDate.classList.add(
+		"text-sm",
+		"text-emerald-800",
+		"font-semibold",
+		"uppercase",
+		"tracking-wide",
+		"mt-1",
+		"mb-2",
+	);
+	timeAndDate.textContent = `${article.time}, ${article.date}`;
+
+	articleElement.append(articleTitle, timeAndDate);
 }
 
 function createLikesAndDislikesContainer(article) {
