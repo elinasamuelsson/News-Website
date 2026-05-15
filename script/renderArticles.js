@@ -8,7 +8,7 @@ export function renderArticles() {
     const isIndex =
         window.location.pathname === "/" ||
         window.location.pathname.includes("index.html");
-        
+
     articlesCopy.forEach((article) => {
         if (article.category === "featured" && isIndex) {
             renderFeaturedArticleToIndex(article);
@@ -72,7 +72,7 @@ export function renderSideArticleToIndex(article) {
 
     const articleContents = document.createElement("p");
     articleContents.classList.add("col-span-5", "hidden", "lg:block");
-    articleContents.textContent = `${article.contents}`;
+    articleContents.textContent = `${article.contents.slice(0, 60)} ...`;
 
     articleElement.append(
         articleLink,
@@ -113,7 +113,7 @@ function renderArticleToArticlePage(article) {
 
 function createMainArticle(article) {
     const articleElement = document.createElement("article");
-    articleElement.classList.add("p-2", "mt-[10px]", "relative");
+    articleElement.classList.add("w-full", "p-2", "mt-[10px]", "relative");
 
     const articleTitle = document.createElement("h3");
     articleTitle.classList.add("text-xl", "font-serif");
@@ -130,7 +130,16 @@ function createMainArticle(article) {
     }
 
     const articleContents = document.createElement("p");
-    articleContents.textContent = `${article.contents}`;
+
+    const isIndex =
+        window.location.pathname === "/" ||
+        window.location.pathname.includes("index.html");
+
+    if (isIndex) {
+        articleContents.textContent = `${article.contents.slice(0, 60)} ...`;
+    } else {
+        articleContents.textContent = `${article.contents}`;
+    }
 
     articleElement.append(articleContents);
 
